@@ -10,7 +10,7 @@ publishing {
             // 配置您的发布信息，例如 groupId, artifactId, version 等
             groupId 'cn.zhengshaomin.library'
             artifactId 'ZsmTime'
-            version '1.0.1'
+            version '1.0.2'
             //website='http://github.com/zhengshaomin/ZsmTime'
         }
     }
