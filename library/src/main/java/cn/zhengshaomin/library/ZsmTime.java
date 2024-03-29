@@ -124,4 +124,74 @@ public class ZsmTime {
     public static String day(String startDateString) {
         return getDaysDifference(startDateString);
     }
+    //返回分钟数
+
+    /**
+     * 根据秒数返回分钟加秒数
+     * @param seconds
+     * @return
+     */
+    public static String formatSecondsToMMSS(int seconds) {
+        if (seconds < 0) {
+            throw new IllegalArgumentException("Seconds must be non-negative.");
+        }
+
+        int mm = seconds / 60;
+        int ss = seconds % 60;
+
+        return String.format("%02d:%02d", mm, ss);
+    }
+    //返回秒数
+    public static String formatSecondsToHHMMSS(int seconds) {
+        if (seconds < 0) {
+            throw new IllegalArgumentException("Seconds must be non-negative.");
+        }
+
+        int hh =seconds/3600;
+        int mm = seconds / 60;
+        int ss = seconds % 60;
+
+        return String.format("%02d:%02d:%02d", hh,mm, ss);
+    }
+    /**
+     * 根据分钟加秒数返回总秒数
+     * @param mmss
+     * @return
+     */
+    public static int convertMMSSToSeconds(String mmss) {
+        if (mmss == null || !mmss.matches("\\d{2}:\\d{2}")) {
+            throw new IllegalArgumentException("Invalid time format. Use MM:SS");
+        }
+
+        String[] parts = mmss.split(":");
+        int minutes = Integer.parseInt(parts[0]);
+        int seconds = Integer.parseInt(parts[1]);
+
+        if (minutes < 0 || seconds < 0 || seconds > 59) {
+            throw new IllegalArgumentException("Invalid minutes or seconds.");
+        }
+
+        return minutes * 60 + seconds;
+    }
+    /**
+     * 根据分钟加秒数返回总秒数
+     * @param hhmmss
+     * @return
+     */
+    public static int convertHHMMSSToSeconds(String hhmmss) {
+        if (hhmmss == null || !hhmmss.matches("\\d{2}:\\d{2}")) {
+            throw new IllegalArgumentException("Invalid time format. Use MM:SS");
+        }
+
+        String[] parts = hhmmss.split(":");
+        int hour=Integer.parseInt(parts[0]);
+        int minutes = Integer.parseInt(parts[1]);
+        int seconds = Integer.parseInt(parts[2]);
+
+        if (minutes < 0 || seconds < 0 || seconds > 59) {
+            throw new IllegalArgumentException("Invalid minutes or seconds.");
+        }
+
+        return hour*3600+minutes * 60 + seconds;
+    }
 }
