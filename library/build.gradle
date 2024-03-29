@@ -35,16 +35,19 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }
-publishing {
-    publications {
-        maven(MavenPublication) {
-            groupId 'cn.zhengshaomin.library'
-            artifactId 'ZsmTime'
-            version '1.0.2'
+group='com.github.zhengshaomin'
+version ='1.0.3'
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId 'cn.zhengshaomin.library'
+                artifactId 'ZsmTime'
+                version '1.0.3'
 
-           // from components.release
+                // from components.release
+            }
         }
     }
-
-
 }

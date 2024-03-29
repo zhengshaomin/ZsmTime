@@ -2,16 +2,4 @@
 plugins {
 id 'com.android.application' version '7.4.2' apply false
     id 'com.android.library' version '7.4.2' apply false
-    id 'maven-publish'
-}
-publishing {
-    publications {
-        maven(MavenPublication) {
-            // 配置您的发布信息，例如 groupId, artifactId, version 等
-            groupId 'cn.zhengshaomin.library'
-            artifactId 'ZsmTime'
-            version '1.0.2'
-            //website='http://github.com/zhengshaomin/ZsmTime'
-        }
-    }
 }
